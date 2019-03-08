@@ -11,6 +11,8 @@ def compare(directory, field):
     file1 = []
     file2 = []
     diffFound = 0
+    print(directory)
+    print(field)
 
     # read file data
     with open(file_list[0]) as f:
@@ -36,6 +38,8 @@ def compare(directory, field):
             secondValue = secondFileValues[valueIndex]
 
             # comparison
+#            print(index)
+#            print(valueIndex)
             if round(float(value.strip()), 5) != round(float(secondValue.strip()), 5):
                 diffFound += 1
                 output.write("row:"+str(index+1)+", column:"+str(valueIndex+1)+", first value:"+ value+", second value:"+ secondValue+"\n")
