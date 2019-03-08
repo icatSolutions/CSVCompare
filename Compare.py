@@ -36,7 +36,7 @@ def compare(directory, field):
             secondValue = secondFileValues[valueIndex]
 
             # comparison
-            if value.strip() != secondValue.strip():
+            if round(float(value.strip()), 5) != round(float(secondValue.strip()), 5):
                 diffFound += 1
                 output.write("row:"+str(index+1)+", column:"+str(valueIndex+1)+", first value:"+ value+", second value:"+ secondValue+"\n")
 
