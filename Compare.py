@@ -6,8 +6,8 @@ import pathlib
 
 
 def compare(directory, field):
-    file_list = [directory+"/"+field+'_source.csv', directory+"/"+field+'.csv']  # List of file names
-    output = open(directory+'/Output.txt', 'w')
+    file_list = [directory+"/"+field+'_original.csv', directory+"/"+field+'.csv']  # List of file names
+    output = open(directory+'/'+field+'Output.txt', 'w')
     file1 = []
     file2 = []
     diffFound = 0
@@ -48,11 +48,11 @@ current_dir = pathlib.Path(__file__).parent
 dirs = [f for f in listdir(current_dir) if isdir(join(current_dir, f))]
 
 #remove directories
-dirs.remove("venv")
+#dirs.remove("venv")
 dirs.remove(".git")
-dirs.remove(".idea")
+#dirs.remove(".idea")
 for directory in dirs:
-    fields = list(map(lambda x: x.split("_")[0], [f for f in listdir(directory) if "source" in join(current_dir, f)]))
+    fields = list(map(lambda x: x.split("_")[0], [f for f in listdir(directory) if "original" in join(current_dir, f)]))
     for field in fields:
         compare(directory, field)
 
